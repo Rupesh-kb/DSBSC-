@@ -49,34 +49,38 @@ Plot the message signal, carrier signal, DSBSC modulated signal, and the recover
 
 ## Program
 ```
-Am=12.25;
-fm=1869;
-fc=18690;  
-Ac=20.175;
-fs=186900;
-t=0:(1/fs):(2/fm);
-em=Am*cos(2*3.14*fm*t);
+Am=12.55;
+Ac=18.82;
+fm=1898;
+fc=18980;
+fs=189800;
+t=0:1/fs:2/fm;
+
+em=Am*cos(2*%pi*fm*t);
+ec=Ac*cos(2*%pi*fc*t);
+e_AM1=(Ac+em).*cos(2*%pi*fc*t);
+e_AM2=(Ac-em).*cos(2*%pi*fc*t);
+e_DSBSC=e_AM1-e_AM2;
+
 subplot(3,1,1);
 plot(t,em);
-ec=Ac*cos(2*3.14*fc*t)
 subplot(3,1,2);
 plot(t,ec);
-eAm1=(Ac+em).*cos(2*3.14*fc*t);
-eAm2=(Ac-em).*cos(2*3.14*fc*t);
-eDSBSC=eAm1-eAm2;
-subplot(3,1,3)
-plot(t,eDSBSC);
+subplot(3,1,3);
+plot(t,e_DSBSC);
 ```
 
 
 ## Output Graph
 
-<img width="1755" height="1072" alt="image" src="https://github.com/user-attachments/assets/e5984c8e-ae83-46bb-8910-522f0b158120" />
+<img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/4288a013-33bc-404a-9356-ff385499825a" />
+
 
 
 ## Tablular Column
 
-<img width="1544" height="937" alt="WhatsApp Image 2026-05-27 at 8 50 20 AM" src="https://github.com/user-attachments/assets/f45c503f-5cae-4e3c-b515-97a4e1f71d9a" />
+<img width="1600" height="900" alt="WhatsApp Image 2026-06-07 at 7 08 01 PM" src="https://github.com/user-attachments/assets/b62e2341-d73b-4a0e-9f04-d79c29e9183d" />
+
 
 
 ## Result
